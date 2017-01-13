@@ -11,26 +11,54 @@
     tools:context="com.example.bowang.simpletodo.EditItemActivity">
 
     <Button
-        android:text="Save"
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:onClick="onEditItem"
-        android:id="@+id/button" />
+        android:text="Save" />
 
 
     <EditText
+        android:id="@+id/editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:ems="10"
+        android:focusable="true"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/editText"
-        android:focusable="true"
+        android:layout_below="@+id/editText"
+        android:layout_marginLeft="82dp"
+        android:layout_marginStart="82dp"
+        android:layout_marginTop="19dp"
+        android:textSize="16dp"
+        android:fontFamily="Arial"
+        android:text="Select Priority" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignTop="@+id/textView"
+        android:layout_toEndOf="@+id/textView"
+        android:spinnerMode="dropdown"
+        android:layout_marginLeft="15dip"
+        android:layout_marginRight="5dip"
+        android:layout_toRightOf="@+id/textView" />
+
 </RelativeLayout>
