@@ -22,6 +22,7 @@ public class EditItemActivity extends AppCompatActivity {
 
         String text = getIntent().getStringExtra("text");
         position = getIntent().getIntExtra("position", 0);
+        priority = getIntent().getIntExtra("priority", 1);
 
         EditText etItem = (EditText) findViewById(R.id.editText);
         etItem.setText(text);
@@ -38,6 +39,8 @@ public class EditItemActivity extends AppCompatActivity {
 
         // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
+
+        spinner.setSelection(priority);
     }
 
     public void onEditItem(View v) {

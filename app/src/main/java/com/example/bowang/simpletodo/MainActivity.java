@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
         i.putExtra("text", items.get(position).text);
         i.putExtra("position", position);
+        i.putExtra("priority", items.get(position).priority);
 
         startActivityForResult(i, REQUEST_CODE);
     }
