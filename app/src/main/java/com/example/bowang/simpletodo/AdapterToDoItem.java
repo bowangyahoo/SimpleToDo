@@ -7,8 +7,11 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -43,6 +46,8 @@ public class AdapterToDoItem extends ArrayAdapter<ToDoItem> {
             convertView = inflater.inflate(R.layout.list_item, parent, false);
             viewHolder.text = (TextView) convertView.findViewById(R.id.txtLabel);
             viewHolder.priority = (TextView) convertView.findViewById(R.id.txtPriority);
+            viewHolder.date = (TextView) convertView.findViewById(R.id.txtDate);
+
             // Cache the viewHolder object inside the fresh view
             convertView.setTag(viewHolder);
         } else {
@@ -52,6 +57,7 @@ public class AdapterToDoItem extends ArrayAdapter<ToDoItem> {
         // Populate the data into the template view using the data object
         viewHolder.text.setText(item.text);
         viewHolder.priority.setText(priorityMap.get(item.priority));
+        viewHolder.date.setText(new SimpleDateFormat("MM/dd/yyyy", Locale.US).format(new Date(item.date)));
 
         // Return the completed view to render on screen
         return convertView;
@@ -61,5 +67,6 @@ public class AdapterToDoItem extends ArrayAdapter<ToDoItem> {
     private static class ViewHolder {
         TextView text;
         TextView priority;
+        TextView date;
     }
 }

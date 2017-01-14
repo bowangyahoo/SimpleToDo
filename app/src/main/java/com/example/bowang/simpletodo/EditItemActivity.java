@@ -5,15 +5,22 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
+
+import org.joda.time.DateTime;
+
+import java.util.Calendar;
 
 public class EditItemActivity extends AppCompatActivity {
 
     private final int REQUEST_CODE = 20;
     private int position = 0;
     private int priority = 1;  // medium
+    private long date = -1;
     private Spinner spinner;
+    private DatePicker datePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +30,7 @@ public class EditItemActivity extends AppCompatActivity {
         String text = getIntent().getStringExtra("text");
         position = getIntent().getIntExtra("position", 0);
         priority = getIntent().getIntExtra("priority", 1);
+        date = getIntent().getLongExtra("date", -1);
 
         EditText etItem = (EditText) findViewById(R.id.editText);
         etItem.setText(text);
@@ -41,6 +49,10 @@ public class EditItemActivity extends AppCompatActivity {
         spinner.setAdapter(adapter);
 
         spinner.setSelection(priority);
+
+        datePicker = (DatePicker) findViewById(R.id.datePicker);
+        DateTime dt = new DateTime(date);
+        datePicker.updateDate(dt.getYear(),dt.getMonthOfYear()-1,dt.getDayOfMonth());
     }
 
     public void onEditItem(View v) {
@@ -51,10 +63,23 @@ public class EditItemActivity extends AppCompatActivity {
         i.putExtra("text", itemText); // pass arbitrary data to launched activity
         i.putExtra("position", position);
         i.putExtra("priority", spinner.getSelectedItemPosition());
+        i.putExtra("date", getDateFromDatePicker(datePicker).getTime());
 
         setResult(RESULT_OK, i); // set result code and bundle data for response
         // closes the activity and returns to first screen
         this.finish();
     }
+
+    private static java.util.Date getDateFromDatePicker(DatePicker datePicker){
+        int day = datePicker.getDayOfMonth();
+        int month = datePicker.getMonth();
+        int year =  datePicker.getYear();
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month, day);
+
+        return calendar.getTime();
+    }
+
 
 }

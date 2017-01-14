@@ -5,8 +5,6 @@ import com.raizlabs.android.dbflow.annotation.PrimaryKey;
 import com.raizlabs.android.dbflow.annotation.Table;
 import com.raizlabs.android.dbflow.structure.BaseModel;
 
-import java.util.Date;
-
 /**
  * Created by bowang on 1/12/17.
  */
@@ -24,5 +22,5 @@ public class ToDoItem extends BaseModel {
     int priority;
 
     @Column
-    Date deadline;
+    long date;
 }

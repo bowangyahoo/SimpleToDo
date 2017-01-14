@@ -34,31 +34,50 @@
         android:focusable="true"
         android:inputType="textMultiLine" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText"
-        android:layout_marginLeft="82dp"
-        android:layout_marginStart="82dp"
-        android:layout_marginTop="19dp"
-        android:textSize="16dp"
-        android:fontFamily="Arial"
-        android:text="Select Priority" />
-
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/textView"
-        android:layout_toEndOf="@+id/textView"
         android:spinnerMode="dropdown"
-        android:layout_marginLeft="15dip"
-        android:layout_marginRight="5dip"
-        android:layout_toRightOf="@+id/textView" />
+        android:layout_below="@+id/editText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/button"
+        android:layout_alignStart="@+id/button" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:fontFamily="Arial"
+        android:text="Select Priority"
+        android:layout_above="@+id/datePicker"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Select Deadline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:textSize="16dp"
+        android:id="@+id/textView2"
+        android:layout_alignRight="@+id/datePicker"
+        android:layout_alignEnd="@+id/datePicker"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <DatePicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/datePicker"
+        android:layout_below="@+id/spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="32dp"
+        android:layout_above="@+id/button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
